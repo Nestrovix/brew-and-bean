@@ -10,10 +10,10 @@
 <meta property="og:title" content="Brew & Bean — Premium Café in Noida | Specialty Coffee, All-Day Breakfast"><meta property="og:description" content="Brew & Bean is a premium café in Noida serving specialty coffee, artisan desserts and all-day breakfast. Reserve a table or order on WhatsApp.">
 <meta property="og:image" content="https://brewandbean.vercel.app/assets/og-image.png"><meta property="og:url" content="https://brewandbean.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F3EBDD">
+<meta name="theme-color" content="#FAF7F0">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/fraunces-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/work-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/unbounded-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
@@ -67,47 +67,57 @@
   </div>
 </div>
 <main id="main">
-<!-- 2. HERO -->
-<section class="hero" aria-label="Welcome">
-  <div class="hero__media"><img src="assets/images/hero-home.jpg" alt="Café interior at golden hour with pendant bulbs hanging over a shared timber table" fetchpriority="high" decoding="async" width="1400" height="1750"></div>
-  <div class="hero__overlay"></div>
-  <div class="container hero__content">
-    <span class="eyebrow reveal">Premium café · Noida</span>
+<!-- 2. MASTHEAD BAND -->
+<section class="masthead" aria-label="Welcome">
+  <img class="masthead__bg" src="assets/images/hero-home.jpg" alt="Café interior at golden hour with pendant bulbs hanging over a shared timber table" fetchpriority="high" decoding="async" width="1400" height="1750">
+  <div class="masthead__inner">
+    <span class="masthead__eyebrow reveal">Premium café · Noida</span>
+    <p class="masthead__wordmark reveal">Brew <span class="amp">&amp;</span> Bean</p>
     <h1 class="reveal d1">Slow mornings, <em>serious</em> coffee.</h1>
-    <p class="lead reveal d2">Single-origin espresso, house-baked pastries and an all-day breakfast — in a warm, light-filled room made for lingering.</p>
-    <div class="hero__actions reveal d3">
-      <a class="btn btn--primary btn--lg" href="reservations.html">Reserve a Table</a>
-      <a class="btn btn--outline-light btn--lg" href="menu.html">Explore the Menu</a>
+    <p class="masthead__lead reveal d2">Single-origin espresso, house-baked pastries and an all-day breakfast — in a warm, light-filled room made for lingering.</p>
+    <div class="masthead__links reveal d3">
+      <a class="link-arrow link-arrow--mark" href="reservations.html">Reserve a Table <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <a class="link-arrow" href="menu.html">Explore the Menu <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
-    <div class="hero__meta reveal d3">
+    <div class="masthead__meta reveal d3">
       <div><b data-open-badge class="open-badge">Open today</b>Opening hours</div>
       <div><b><span data-bind="addressLine2">Noida, Uttar Pradesh</span></b>Find us</div>
       <div><b>Specialty · All-day breakfast</b>What we do</div>
     </div>
   </div>
-  <div class="scroll-cue" aria-hidden="true">Scroll</div>
 </section>
+
+<!-- 3. TICKER — separates the masthead from the price board -->
 <div class="ticker">
   <div class="ticker__track">
-    <ul class="ticker__set"><li>All-day breakfast</li><li>Open 8:00 AM – 11:00 PM</li><li>Small-batch roasting</li><li>Baked in-house every morning</li><li>Milk alternatives at no extra charge</li><li>Walk-ins welcome</li></ul>
-    <ul class="ticker__set" aria-hidden="true"><li>All-day breakfast</li><li>Open 8:00 AM – 11:00 PM</li><li>Small-batch roasting</li><li>Baked in-house every morning</li><li>Milk alternatives at no extra charge</li><li>Walk-ins welcome</li></ul>
+    <ul class="ticker__set"><li>All-day breakfast</li><li>Open 8:00 AM – 11:00 PM</li><li>Small-batch roasting</li><li>Baked in-house every morning</li><li>Milk alternatives at no extra charge</li><li>Walk-ins welcome</li></ul>
+    <ul class="ticker__set" aria-hidden="true"><li>All-day breakfast</li><li>Open 8:00 AM – 11:00 PM</li><li>Small-batch roasting</li><li>Baked in-house every morning</li><li>Milk alternatives at no extra charge</li><li>Walk-ins welcome</li></ul>
   </div>
 </div>
 
-<!-- 3. SIGNATURE COFFEE -->
-<section class="section section--cream" id="signature">
-  <div class="container">
-    <div class="section-head split reveal">
-      <div><span class="eyebrow">Signature coffee</span><h2>Three cups we're known for</h2></div>
+<!-- 4. SIGNATURE PRICE BOARD — first content block -->
+<section class="pricelist-band" id="signature" aria-labelledby="signature-h">
+  <div class="container--wide">
+    <div class="pricelist__head reveal">
+      <div><span class="eyebrow">Signature coffee</span><h2 id="signature-h">Three cups we're known for</h2></div>
       <a class="link-arrow" href="menu.html#coffee">Full coffee menu <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
-    <div class="sig-grid">
-      <article class="sig-card reveal"><div class="frame"><img src="assets/images/signature-1.jpg" alt="Honey cinnamon latte dusted with cinnamon and finished with star anise" loading="lazy" decoding="async" width="1000" height="1250"></div>
-        <div class="sig-card__body"><span class="num">No. 01</span><h3>Noida Sunrise</h3><p>Honey–cinnamon latte with a double shot and a whisper of orange zest.</p><span class="price tnum">₹290</span></div></article>
-      <article class="sig-card reveal d1"><div class="frame"><img src="assets/images/signature-2.jpg" alt="Coffee poured from a small steel jug into a ceramic cup on a worn timber bar" loading="lazy" decoding="async" width="1000" height="1250"></div>
-        <div class="sig-card__body"><span class="num">No. 02</span><h3>Midnight Roast</h3><p>Slow pour-over of our darkest single-origin. Cocoa, plum, a long clean finish.</p><span class="price tnum">₹310</span></div></article>
-      <article class="sig-card reveal d2"><div class="frame"><img src="assets/images/signature-3.jpg" alt="Milk pouring into a tall glass of iced cold brew on a wooden coaster" loading="lazy" decoding="async" width="1000" height="1250"></div>
-        <div class="sig-card__body"><span class="num">No. 03</span><h3>Salted Caramel Cold Brew</h3><p>18-hour cold brew, house caramel, flaky sea salt. Dangerously easy to drink.</p><span class="price tnum">₹320</span></div></article>
+    <div class="pricelist">
+      <a class="priceline reveal" href="menu.html#coffee">
+        <span class="priceline__thumb"><img src="assets/images/signature-1.jpg" alt="Honey cinnamon latte dusted with cinnamon and finished with star anise" loading="lazy" decoding="async" width="1000" height="1250"></span>
+        <span class="priceline__text"><span class="priceline__num">No. 01</span><span class="priceline__name">Noida Sunrise</span><span class="priceline__desc">Honey–cinnamon latte with a double shot and a whisper of orange zest.</span></span>
+        <span class="priceline__price tnum">₹290</span>
+      </a>
+      <a class="priceline reveal" href="menu.html#coffee">
+        <span class="priceline__thumb"><img src="assets/images/signature-2.jpg" alt="Coffee poured from a small steel jug into a ceramic cup on a worn timber bar" loading="lazy" decoding="async" width="1000" height="1250"></span>
+        <span class="priceline__text"><span class="priceline__num">No. 02</span><span class="priceline__name">Midnight Roast</span><span class="priceline__desc">Slow pour-over of our darkest single-origin. Cocoa, plum, a long clean finish.</span></span>
+        <span class="priceline__price tnum">₹310</span>
+      </a>
+      <a class="priceline reveal" href="menu.html#coffee">
+        <span class="priceline__thumb"><img src="assets/images/signature-3.jpg" alt="Milk pouring into a tall glass of iced cold brew on a wooden coaster" loading="lazy" decoding="async" width="1000" height="1250"></span>
+        <span class="priceline__text"><span class="priceline__num">No. 03</span><span class="priceline__name">Salted Caramel Cold Brew</span><span class="priceline__desc">18-hour cold brew, house caramel, flaky sea salt. Dangerously easy to drink.</span></span>
+        <span class="priceline__price tnum">₹320</span>
+      </a>
     </div>
   </div>
 </section>
