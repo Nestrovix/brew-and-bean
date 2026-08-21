@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700">
+<defs>
+ <radialGradient id="g" cx="35%" cy="30%" r="85%"><stop offset="0" stop-color="#8C6238"/><stop offset=".55" stop-color="#6B4A2B"/><stop offset="1" stop-color="#3A2619"/></radialGradient>
+ <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="6" height="6" fill="none"/><rect width="1" height="6" fill="#fff" opacity=".035"/></pattern>
+ <linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+</defs>
+<rect width="1000" height="700" fill="url(#g)"/><circle cx="994" cy="665" r="110" fill="#8C6238" opacity="0.16"/><circle cx="956" cy="142" r="195" fill="#8C6238" opacity="0.22"/><circle cx="199" cy="216" r="91" fill="#8C6238" opacity="0.13"/><circle cx="299" cy="513" r="145" fill="#8C6238" opacity="0.19"/><circle cx="333" cy="265" r="223" fill="#8C6238" opacity="0.15"/>
+<rect width="1000" height="700" fill="url(#grain)"/>
+<rect width="1000" height="700" fill="url(#v)"/>
+<g font-family="ui-monospace,Menlo,Consolas,monospace" fill="#F5EEE2" opacity=".28">
+ <text x="28" y="645.0" font-size="10" letter-spacing="1">OFFER — replace: loyalty card</text>
+ <text x="28" y="672" font-size="9" opacity=".8">offer-3.jpg · 1000×700</text>
+</g>
+</svg>

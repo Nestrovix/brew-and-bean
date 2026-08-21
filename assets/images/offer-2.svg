@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700">
+<defs>
+ <radialGradient id="g" cx="35%" cy="30%" r="85%"><stop offset="0" stop-color="#4A3224"/><stop offset=".55" stop-color="#2B1D14"/><stop offset="1" stop-color="#1A100A"/></radialGradient>
+ <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="6" height="6" fill="none"/><rect width="1" height="6" fill="#fff" opacity=".035"/></pattern>
+ <linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+</defs>
+<rect width="1000" height="700" fill="url(#g)"/><circle cx="969" cy="86" r="124" fill="#4A3224" opacity="0.12"/><circle cx="130" cy="28" r="122" fill="#4A3224" opacity="0.17"/><circle cx="476" cy="671" r="121" fill="#4A3224" opacity="0.17"/><circle cx="610" cy="485" r="173" fill="#4A3224" opacity="0.12"/><circle cx="561" cy="134" r="89" fill="#4A3224" opacity="0.10"/>
+<rect width="1000" height="700" fill="url(#grain)"/>
+<rect width="1000" height="700" fill="url(#v)"/>
+<g font-family="ui-monospace,Menlo,Consolas,monospace" fill="#F5EEE2" opacity=".28">
+ <text x="28" y="645.0" font-size="10" letter-spacing="1">OFFER — replace: cold brew happy hour</text>
+ <text x="28" y="672" font-size="9" opacity=".8">offer-2.jpg · 1000×700</text>
+</g>
+</svg>

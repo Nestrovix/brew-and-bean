@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<defs>
+ <radialGradient id="g" cx="35%" cy="30%" r="85%"><stop offset="0" stop-color="#8C6238"/><stop offset=".55" stop-color="#6B4A2B"/><stop offset="1" stop-color="#3A2619"/></radialGradient>
+ <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="6" height="6" fill="none"/><rect width="1" height="6" fill="#fff" opacity=".035"/></pattern>
+ <linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#g)"/><circle cx="160" cy="433" r="101" fill="#8C6238" opacity="0.20"/><circle cx="415" cy="591" r="165" fill="#8C6238" opacity="0.16"/><circle cx="166" cy="133" r="75" fill="#8C6238" opacity="0.11"/><circle cx="145" cy="406" r="94" fill="#8C6238" opacity="0.17"/><circle cx="379" cy="516" r="115" fill="#8C6238" opacity="0.12"/>
+<rect width="800" height="600" fill="url(#grain)"/>
+<rect width="800" height="600" fill="url(#v)"/>
+<g font-family="ui-monospace,Menlo,Consolas,monospace" fill="#F5EEE2" opacity=".28">
+ <text x="24" y="553.5" font-size="10" letter-spacing="1">MENU — replace: chicken pesto sandwich</text>
+ <text x="24" y="576" font-size="9" opacity=".8">menu/chicken-pesto-sandwich.jpg · 800×600</text>
+</g>
+</svg>

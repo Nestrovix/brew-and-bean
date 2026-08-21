@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<defs>
+ <radialGradient id="g" cx="35%" cy="30%" r="85%"><stop offset="0" stop-color="#6E6740"/><stop offset=".55" stop-color="#4E4A2C"/><stop offset="1" stop-color="#2D2A18"/></radialGradient>
+ <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="6" height="6" fill="none"/><rect width="1" height="6" fill="#fff" opacity=".035"/></pattern>
+ <linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#g)"/><circle cx="638" cy="507" r="119" fill="#6E6740" opacity="0.21"/><circle cx="496" cy="427" r="86" fill="#6E6740" opacity="0.21"/><circle cx="149" cy="402" r="85" fill="#6E6740" opacity="0.13"/><circle cx="610" cy="145" r="178" fill="#6E6740" opacity="0.11"/><circle cx="61" cy="188" r="172" fill="#6E6740" opacity="0.15"/>
+<rect width="800" height="600" fill="url(#grain)"/>
+<rect width="800" height="600" fill="url(#v)"/>
+<g font-family="ui-monospace,Menlo,Consolas,monospace" fill="#F5EEE2" opacity=".28">
+ <text x="24" y="553.5" font-size="10" letter-spacing="1">MENU — replace: jasmine green</text>
+ <text x="24" y="576" font-size="9" opacity=".8">menu/jasmine-green.jpg · 800×600</text>
+</g>
+</svg>

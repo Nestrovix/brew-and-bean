@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+ <radialGradient id="g" cx="35%" cy="30%" r="85%"><stop offset="0" stop-color="#4A3224"/><stop offset=".55" stop-color="#2B1D14"/><stop offset="1" stop-color="#1A100A"/></radialGradient>
+ <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="6" height="6" fill="none"/><rect width="1" height="6" fill="#fff" opacity=".035"/></pattern>
+ <linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+</defs>
+<rect width="1920" height="1080" fill="url(#g)"/><circle cx="663" cy="308" r="230" fill="#4A3224" opacity="0.18"/><circle cx="148" cy="192" r="222" fill="#4A3224" opacity="0.17"/><circle cx="1863" cy="1039" r="183" fill="#4A3224" opacity="0.10"/><circle cx="888" cy="856" r="146" fill="#4A3224" opacity="0.13"/><circle cx="1128" cy="869" r="144" fill="#4A3224" opacity="0.20"/>
+<rect width="1920" height="1080" fill="url(#grain)"/>
+<rect width="1920" height="1080" fill="url(#v)"/>
+<g font-family="ui-monospace,Menlo,Consolas,monospace" fill="#F5EEE2" opacity=".28">
+ <text x="43" y="995.0" font-size="15" letter-spacing="1">HERO — replace: cinematic latte pour / café interior at golden hour</text>
+ <text x="43" y="1037" font-size="12" opacity=".8">hero-home.jpg · 1920×1080</text>
+</g>
+</svg>

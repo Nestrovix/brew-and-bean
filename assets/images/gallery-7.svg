@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<defs>
+ <radialGradient id="g" cx="35%" cy="30%" r="85%"><stop offset="0" stop-color="#7A4A46"/><stop offset=".55" stop-color="#5A3230"/><stop offset="1" stop-color="#34201F"/></radialGradient>
+ <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="6" height="6" fill="none"/><rect width="1" height="6" fill="#fff" opacity=".035"/></pattern>
+ <linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+</defs>
+<rect width="1200" height="1200" fill="url(#g)"/><circle cx="265" cy="864" r="276" fill="#7A4A46" opacity="0.15"/><circle cx="1098" cy="1054" r="397" fill="#7A4A46" opacity="0.18"/><circle cx="183" cy="571" r="173" fill="#7A4A46" opacity="0.20"/><circle cx="375" cy="871" r="181" fill="#7A4A46" opacity="0.13"/><circle cx="34" cy="181" r="277" fill="#7A4A46" opacity="0.11"/>
+<rect width="1200" height="1200" fill="url(#grain)"/>
+<rect width="1200" height="1200" fill="url(#v)"/>
+<g font-family="ui-monospace,Menlo,Consolas,monospace" fill="#F5EEE2" opacity=".28">
+ <text x="48" y="1105.5" font-size="17" letter-spacing="1">GALLERY · Food — replace</text>
+ <text x="48" y="1152" font-size="14" opacity=".8">gallery-7.jpg · 1200×1200</text>
+</g>
+</svg>
