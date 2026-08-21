@@ -7,17 +7,14 @@ window.SITE = {
   name: "Brew & Bean",
   tagline: "Premium Café · Noida",
   // Contact — REPLACE
-  phoneDisplay: "+91 98XXX XXXXX",          // shown on site
-  phoneTel: "+919800000000",                // used in tel: links (digits only after +)
-  whatsapp: "919800000000",                 // WhatsApp number with country code, digits only
-  email: "hello@brewandbean.in",
-  addressLine1: "[Shop no. & building — replace]",
-  addressLine2: "Noida, Uttar Pradesh 201301",
-  // Google Maps embed — replace the `q=` with your exact address or Plus Code (no API key needed)
-  mapEmbed: "https://maps.google.com/maps?q=Noida%2C%20Uttar%20Pradesh&t=&z=13&ie=UTF8&iwloc=&output=embed",
-  mapLink: "https://maps.google.com/?q=Noida%2C%20Uttar%20Pradesh",
-  instagram: "https://instagram.com/brewandbean",     // REPLACE
-  facebook: "https://facebook.com/brewandbean",        // REPLACE
+  phoneDisplay: "+91 00000 00000",          // shown on site
+  phoneTel: "+910000000000",                // used in tel: links (digits only after +)
+  whatsapp: "910000000000",                 // WhatsApp number with country code, digits only
+  email: "hello@brewandbean.example",
+  addressLine1: "[Demo address — not a real location]",
+  addressLine2: "Noida, Uttar Pradesh",
+  instagram: "https://example.com/",                  // demo link — no real account
+  facebook: "https://example.com/",                    // demo link — no real account
   // Opening hours — 24h format, used for the "Open now" badge and reservation time slots
   hours: {
     mon: ["08:00","23:00"], tue: ["08:00","23:00"], wed: ["08:00","23:00"], thu: ["08:00","23:00"],

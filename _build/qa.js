@@ -61,7 +61,6 @@ const VIEWPORTS = [[1440,900,'desktop'],[1024,768,'laptop'],[820,1180,'tablet'],
   report.checks.popularMenuCards = await p.$$eval('[data-popular-menu] .menu-card', c => c.length);
   report.checks.openBadge = await p.$eval('[data-open-badge]', e => e.textContent);
   report.checks.hoursRendered = await p.$eval('[data-hours]', e => e.children.length);
-  report.checks.mapSrc = await p.$eval('[data-map-embed]', f => f.src.includes('google'));
   report.checks.waLink = await p.$eval('.whatsapp-float', a => a.href.startsWith('https://wa.me/'));
   // lightbox on home
   await p.click('.g-item'); await p.waitForTimeout(300);

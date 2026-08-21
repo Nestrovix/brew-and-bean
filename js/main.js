@@ -21,11 +21,9 @@
     if (k === "tel") el.href = `tel:${S.phoneTel}`;
     else if (k === "mail") el.href = `mailto:${S.email}`;
     else if (k === "whatsapp") el.href = waUrl(el.dataset.waText);
-    else if (k === "map") el.href = S.mapLink;
     else if (k === "instagram") el.href = S.instagram;
     else if (k === "facebook") el.href = S.facebook;
   });
-  $$("[data-map-embed]").forEach((f) => { f.src = S.mapEmbed; });
   $$("[data-hours]").forEach((box) => {
     box.innerHTML = (S.hoursLabel || []).map(([d, h]) => `<div><span>${d}</span><b>${h}</b></div>`).join("");
   });

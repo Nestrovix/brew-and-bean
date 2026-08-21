@@ -38,7 +38,7 @@ def header():
     <nav class="nav" aria-label="Primary">
       <ul class="nav__links">{links}</ul>
       <div class="nav__cta">
-        <a class="nav__phone" data-href="tel" href="#"><svg class="ic"><use href="#i-phone"/></svg><span data-bind="phoneDisplay">+91 98XXX XXXXX</span></a>
+        <a class="nav__phone" data-href="tel" href="#"><svg class="ic"><use href="#i-phone"/></svg><span data-bind="phoneDisplay">+91 00000 00000</span></a>
         <a class="btn btn--primary" href="reservations.html">Reserve a Table</a>
         <button class="nav__toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span></button>
       </div>
@@ -49,7 +49,7 @@ def header():
   <nav class="mobile-nav__links" aria-label="Mobile">{mlinks}</nav>
   <a class="btn btn--primary btn--lg" href="reservations.html">Reserve a Table</a>
   <div class="mobile-nav__meta">
-    <a data-href="tel" href="#"><svg class="ic"><use href="#i-phone"/></svg> <span data-bind="phoneDisplay">+91 98XXX XXXXX</span></a>
+    <a data-href="tel" href="#"><svg class="ic"><use href="#i-phone"/></svg> <span data-bind="phoneDisplay">+91 00000 00000</span></a>
     <a data-href="whatsapp" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-whatsapp"/></svg> Chat on WhatsApp</a>
     <span><svg class="ic"><use href="#i-clock"/></svg> <span data-open-badge class="open-badge">Open today</span></span>
   </div>
