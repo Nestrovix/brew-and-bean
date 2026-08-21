@@ -2,7 +2,7 @@
 const { chromium } = require('/home/claude/webcloudnest/node_modules/playwright');
 const http = require('http'), fs = require('fs'), path = require('path');
 const ROOT = '/home/claude/sites/brew-and-bean';
-const MIME = { '.html':'text/html', '.css':'text/css', '.js':'text/javascript', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.png':'image/png', '.xml':'application/xml', '.txt':'text/plain' };
+const MIME = { '.html':'text/html', '.css':'text/css', '.js':'text/javascript', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.woff2':'font/woff2', '.png':'image/png', '.xml':'application/xml', '.txt':'text/plain' };
 const server = http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0]); if (p === '/') p = '/index.html';
   const f = path.join(ROOT, p);

@@ -80,17 +80,18 @@
     revealEls.forEach((el) => io.observe(el));
   } else revealEls.forEach((el) => el.classList.add("in"));
 
-  /* ---------- Menu card renderer (shared) ---------- */
+  /* ---------- Menu board row renderer (shared) ---------- */
   const rupee = (n) => `₹${n.toLocaleString("en-IN")}`;
   window.renderMenuCard = (item) => `
-    <article class="menu-card reveal in" data-id="${item.id}">
-      <div class="frame"><img src="${item.img}" alt="${item.name} — ${item.desc.replace(/"/g, "&quot;")}" loading="lazy" width="800" height="600"></div>
-      <div class="menu-card__body">
-        <div class="menu-card__top"><h3>${item.name}</h3><span class="price tnum">${rupee(item.price)}</span></div>
-        <p>${item.desc}</p>
-        <div class="menu-card__tags">${(item.tags || []).filter(t => t !== "popular").map(t => `<span class="tag">${t}</span>`).join("")}${(item.tags || []).includes("popular") ? `<span class="tag tag--hot">Popular</span>` : ""}</div>
+    <li class="board-item reveal in" data-id="${item.id}">
+      <div class="board-item__line">
+        <h3 class="board-item__name">${item.name}</h3>
+        <span class="board-item__dots" aria-hidden="true"></span>
+        <span class="board-item__price tnum">${rupee(item.price)}</span>
       </div>
-    </article>`;
+      <p class="board-item__desc">${item.desc}</p>
+      <div class="board-item__tags">${(item.tags || []).filter(t => t !== "popular").map(t => `<span class="tag">${t}</span>`).join("")}${(item.tags || []).includes("popular") ? `<span class="tag tag--hot">Popular</span>` : ""}</div>
+    </li>`;
 
   /* ---------- Home: popular menu ---------- */
   const popular = $("[data-popular-menu]");

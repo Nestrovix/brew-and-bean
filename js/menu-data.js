@@ -1,7 +1,7 @@
 /* ============================================================
    BREW & BEAN — Menu data
-   Edit prices/descriptions here. Images live in assets/images/menu/<slug>.svg
-   Replace each SVG with a real photo (same filename, .jpg/.webp) and update `img`.
+   Edit prices/descriptions here. Photos live in assets/images/menu/<slug>.jpg
+   To swap a photo, drop a new file in with the same name (paths stay relative).
    ============================================================ */
 window.MENU_CATEGORIES = [
   { id: "coffee",    label: "Coffee",    blurb: "Single-origin espresso, slow pour-overs and cold brews." },
@@ -11,7 +11,7 @@ window.MENU_CATEGORIES = [
   { id: "breakfast", label: "Breakfast", blurb: "Served all day, the way it should be." }
 ];
 
-const I = (s) => `assets/images/menu/${s}.svg`;
+const I = (s) => `assets/images/menu/${s}.jpg`;
 window.MENU = [
   // ---- Coffee ----
   { id:"espresso", cat:"coffee", name:"Espresso", price:180, desc:"Double shot of our house blend — dark chocolate, hazelnut, long finish.", img:I("espresso"), tags:["hot"] },

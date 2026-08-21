@@ -1,3 +1,21 @@
+"""
+STALE — DO NOT RUN WITHOUT RESYNCING FIRST.
+
+The pages in this repo were redesigned (Fraunces + Work Sans, terracotta/olive/
+clay palette, menu-board layout) and re-photographed directly in the HTML, which
+is now the source of truth. This generator still emits the previous design, so
+running it as-is would silently revert the site.
+
+Resync the templates in partials.py and the section markup below to the current
+HTML before using it again, then delete this guard.
+"""
+import sys as _sys
+if __name__ == "__main__" and "--i-have-resynced" not in _sys.argv:
+    raise SystemExit(
+        "build.py is stale and would revert the redesign. "
+        "Resync it with the current HTML first, then re-run with --i-have-resynced."
+    )
+
 import os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from partials import head, header, footer, page_hero
@@ -5,7 +23,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def write(name, html): open(os.path.join(ROOT, name), "w", encoding="utf-8").write(html); print("wrote", name)
 
 LD = '''<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Brew & Bean","image":"https://brewandbean.vercel.app/assets/og-image.png","url":"https://brewandbean.vercel.app/","telephone":"+91-98XXX-XXXXX","priceRange":"₹₹","servesCuisine":["Coffee","Café","Breakfast","Bakery"],"address":{"@type":"PostalAddress","streetAddress":"[Replace with street address]","addressLocality":"Noida","addressRegion":"Uttar Pradesh","postalCode":"201301","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Sunday"],"opens":"08:00","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:00","closes":"23:30"}],"acceptsReservations":"True","sameAs":["https://example.com/"]}
+{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Brew & Bean","image":"https://brewandbean.vercel.app/assets/og-image.png","url":"https://brewandbean.vercel.app/","telephone":"+91-00000-00000","priceRange":"₹₹","servesCuisine":["Coffee","Café","Breakfast","Bakery"],"address":{"@type":"PostalAddress","streetAddress":"[Demo address — not a real location]","addressLocality":"Noida","addressRegion":"Uttar Pradesh","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Sunday"],"opens":"08:00","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:00","closes":"23:30"}],"acceptsReservations":"True","sameAs":["https://example.com/"]}
 </script>'''
 
 # ============================ HOME ============================
@@ -15,7 +33,7 @@ home = head("Brew & Bean — Premium Café in Noida | Specialty Coffee, All-Day 
 <main id="main">
 <!-- 2. HERO -->
 <section class="hero" aria-label="Welcome">
-  <div class="hero__media"><img src="assets/images/hero-home.svg" alt="Brew &amp; Bean café interior with warm light and a fresh latte on the counter" width="1920" height="1080" fetchpriority="high"></div>
+  <div class="hero__media"><img src="assets/images/hero-home.jpg" alt="Brew &amp; Bean café interior with warm light and a fresh latte on the counter" width="1920" height="1080" fetchpriority="high"></div>
   <div class="hero__overlay"></div>
   <div class="container hero__content">
     <span class="eyebrow reveal">Premium café · Noida</span>
@@ -42,11 +60,11 @@ home = head("Brew & Bean — Premium Café in Noida | Specialty Coffee, All-Day 
       <a class="link-arrow" href="menu.html#coffee">Full coffee menu <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="sig-grid">
-      <article class="sig-card reveal"><div class="frame"><img src="assets/images/signature-1.svg" alt="Noida Sunrise — honey cinnamon latte" loading="lazy" width="800" height="1000"></div>
+      <article class="sig-card reveal"><div class="frame"><img src="assets/images/signature-1.jpg" alt="Noida Sunrise — honey cinnamon latte" loading="lazy" width="800" height="1000"></div>
         <div class="sig-card__body"><span class="num">No. 01</span><h3>Noida Sunrise</h3><p>Honey–cinnamon latte with a double shot and a whisper of orange zest.</p><span class="price tnum">₹290</span></div></article>
-      <article class="sig-card reveal d1"><div class="frame"><img src="assets/images/signature-2.svg" alt="Midnight Roast — single-origin pour-over" loading="lazy" width="800" height="1000"></div>
+      <article class="sig-card reveal d1"><div class="frame"><img src="assets/images/signature-2.jpg" alt="Midnight Roast — single-origin pour-over" loading="lazy" width="800" height="1000"></div>
         <div class="sig-card__body"><span class="num">No. 02</span><h3>Midnight Roast</h3><p>Slow pour-over of our darkest single-origin. Cocoa, plum, a long clean finish.</p><span class="price tnum">₹310</span></div></article>
-      <article class="sig-card reveal d2"><div class="frame"><img src="assets/images/signature-3.svg" alt="Salted Caramel Cold Brew" loading="lazy" width="800" height="1000"></div>
+      <article class="sig-card reveal d2"><div class="frame"><img src="assets/images/signature-3.jpg" alt="Salted Caramel Cold Brew" loading="lazy" width="800" height="1000"></div>
         <div class="sig-card__body"><span class="num">No. 03</span><h3>Salted Caramel Cold Brew</h3><p>18-hour cold brew, house caramel, flaky sea salt. Dangerously easy to drink.</p><span class="price tnum">₹320</span></div></article>
     </div>
   </div>
@@ -68,8 +86,8 @@ home = head("Brew & Bean — Premium Café in Noida | Specialty Coffee, All-Day 
   <div class="container">
     <div class="split">
       <div class="split__media reveal">
-        <div class="frame"><img src="assets/images/about-1.svg" alt="Inside Brew &amp; Bean — warm timber, soft light and the espresso bar" loading="lazy" width="1200" height="900"></div>
-        <div class="frame frame--tall"><img src="assets/images/about-2.svg" alt="Freshly roasted coffee beans" loading="lazy" width="900" height="1200"></div>
+        <div class="frame"><img src="assets/images/story-1.jpg" alt="Inside Brew &amp; Bean — warm timber, soft light and the espresso bar" loading="lazy" width="1200" height="900"></div>
+        <div class="frame frame--tall"><img src="assets/images/story-2.jpg" alt="Freshly roasted coffee beans" loading="lazy" width="900" height="1200"></div>
       </div>
       <div class="split__body reveal d1">
         <span class="eyebrow">About our café</span>
@@ -101,9 +119,9 @@ home = head("Brew & Bean — Premium Café in Noida | Specialty Coffee, All-Day 
   <div class="container">
     <div class="section-head split reveal"><div><span class="eyebrow">Special offers</span><h2>Good reasons to come by</h2></div><span class="muted" style="font-size:.85rem">Offers change seasonally — ask our team</span></div>
     <div class="offers-grid">
-      <a class="offer reveal" href="menu.html#breakfast"><img src="assets/images/offer-1.svg" alt="" loading="lazy" width="1000" height="700"><div class="offer__body"><span class="offer__badge">Weekdays · 8–11 AM</span><h3>Breakfast combo</h3><p>Any breakfast plate + a flat white or chai at a combo price.</p><small>Mon–Fri only</small></div></a>
-      <a class="offer reveal d1" href="menu.html#coffee"><img src="assets/images/offer-2.svg" alt="" loading="lazy" width="1000" height="700"><div class="offer__body"><span class="offer__badge">Daily · 3–6 PM</span><h3>Cold brew happy hour</h3><p>Buy one cold brew, get the second one on us.</p><small>Dine-in only</small></div></a>
-      <a class="offer reveal d2" href="contact.html"><img src="assets/images/offer-3.svg" alt="" loading="lazy" width="1000" height="700"><div class="offer__body"><span class="offer__badge">Loyalty</span><h3>Every 10th coffee free</h3><p>Pick up a stamp card at the counter — no app, no sign-up.</p><small>Ask at the counter</small></div></a>
+      <a class="offer reveal" href="menu.html#breakfast"><img src="assets/images/offer-1.jpg" alt="" loading="lazy" width="1000" height="700"><div class="offer__body"><span class="offer__badge">Weekdays · 8–11 AM</span><h3>Breakfast combo</h3><p>Any breakfast plate + a flat white or chai at a combo price.</p><small>Mon–Fri only</small></div></a>
+      <a class="offer reveal d1" href="menu.html#coffee"><img src="assets/images/offer-2.jpg" alt="" loading="lazy" width="1000" height="700"><div class="offer__body"><span class="offer__badge">Daily · 3–6 PM</span><h3>Cold brew happy hour</h3><p>Buy one cold brew, get the second one on us.</p><small>Dine-in only</small></div></a>
+      <a class="offer reveal d2" href="contact.html"><img src="assets/images/offer-3.jpg" alt="" loading="lazy" width="1000" height="700"><div class="offer__body"><span class="offer__badge">Loyalty</span><h3>Every 10th coffee free</h3><p>Pick up a stamp card at the counter — no app, no sign-up.</p><small>Ask at the counter</small></div></a>
     </div>
   </div>
 </section>
@@ -113,12 +131,12 @@ home = head("Brew & Bean — Premium Café in Noida | Specialty Coffee, All-Day 
   <div class="container--wide">
     <div class="container"><div class="section-head split reveal"><div><span class="eyebrow">Gallery</span><h2>The room, the cups, the light</h2></div><a class="link-arrow" href="gallery.html">View full gallery <svg class="ic"><use href="#i-arrow"/></svg></a></div></div>
     <div class="gallery-grid">
-      <figure class="g-item big reveal" data-cat="Interiors"><img src="assets/images/gallery-1.svg" alt="Main room at golden hour" loading="lazy"><figcaption>Interiors</figcaption></figure>
-      <figure class="g-item reveal" data-cat="Coffee"><img src="assets/images/gallery-2.svg" alt="Latte art close-up" loading="lazy"><figcaption>Coffee</figcaption></figure>
-      <figure class="g-item reveal" data-cat="Food"><img src="assets/images/gallery-3.svg" alt="Shakshuka and sourdough" loading="lazy"><figcaption>Food</figcaption></figure>
-      <figure class="g-item tall reveal" data-cat="Moments"><img src="assets/images/gallery-4.svg" alt="Friends sharing dessert" loading="lazy"><figcaption>Moments</figcaption></figure>
-      <figure class="g-item reveal" data-cat="Coffee"><img src="assets/images/gallery-6.svg" alt="Pour-over station" loading="lazy"><figcaption>Coffee</figcaption></figure>
-      <figure class="g-item reveal" data-cat="Interiors"><img src="assets/images/gallery-5.svg" alt="Window seat" loading="lazy"><figcaption>Interiors</figcaption></figure>
+      <figure class="g-item big reveal" data-cat="Interiors"><img src="assets/images/gallery-1.jpg" alt="Main room at golden hour" loading="lazy"><figcaption>Interiors</figcaption></figure>
+      <figure class="g-item reveal" data-cat="Coffee"><img src="assets/images/gallery-2.jpg" alt="Latte art close-up" loading="lazy"><figcaption>Coffee</figcaption></figure>
+      <figure class="g-item reveal" data-cat="Food"><img src="assets/images/gallery-3.jpg" alt="Shakshuka and sourdough" loading="lazy"><figcaption>Food</figcaption></figure>
+      <figure class="g-item tall reveal" data-cat="Moments"><img src="assets/images/gallery-4.jpg" alt="Friends sharing dessert" loading="lazy"><figcaption>Moments</figcaption></figure>
+      <figure class="g-item reveal" data-cat="Coffee"><img src="assets/images/gallery-6.jpg" alt="Pour-over station" loading="lazy"><figcaption>Coffee</figcaption></figure>
+      <figure class="g-item reveal" data-cat="Interiors"><img src="assets/images/gallery-5.jpg" alt="Window seat" loading="lazy"><figcaption>Interiors</figcaption></figure>
     </div>
   </div>
 </section>
@@ -138,7 +156,7 @@ home = head("Brew & Bean — Premium Café in Noida | Specialty Coffee, All-Day 
 
 <!-- 10. TABLE RESERVATION CTA -->
 <section class="cta-band" id="reserve">
-  <img src="assets/images/hero-reservations.svg" alt="" loading="lazy" width="1920" height="800">
+  <img src="assets/images/cta-home.jpg" alt="" loading="lazy" width="1600" height="900">
   <div class="container reveal">
     <span class="eyebrow">Reservations</span>
     <h2>Your table is waiting</h2>
@@ -152,12 +170,12 @@ home = head("Brew & Bean — Premium Café in Noida | Specialty Coffee, All-Day 
   <div class="container">
     <div class="section-head center reveal"><span class="eyebrow">@brewandbean</span><h2>Follow the daily pour</h2></div>
     <div class="insta-grid reveal">
-      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 1"><img src="assets/images/insta-1.svg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
-      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 2"><img src="assets/images/insta-2.svg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
-      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 3"><img src="assets/images/insta-3.svg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
-      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 4"><img src="assets/images/insta-4.svg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
-      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 5"><img src="assets/images/insta-5.svg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
-      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 6"><img src="assets/images/insta-6.svg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
+      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 1"><img src="assets/images/insta-1.jpg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
+      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 2"><img src="assets/images/insta-2.jpg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
+      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 3"><img src="assets/images/insta-3.jpg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
+      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 4"><img src="assets/images/insta-4.jpg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
+      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 5"><img src="assets/images/insta-5.jpg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
+      <a data-href="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram post 6"><img src="assets/images/insta-6.jpg" alt="" loading="lazy"><svg class="ic"><use href="#i-instagram"/></svg></a>
     </div>
     <p class="center mt-3"><a class="link-arrow" data-href="instagram" href="#" target="_blank" rel="noopener">Follow us on Instagram <svg class="ic"><use href="#i-arrow"/></svg></a></p>
   </div>
@@ -186,7 +204,7 @@ write("index.html", home)
 # ============================ MENU ============================
 menu = head("Menu — Brew & Bean Café, Noida | Coffee, Tea, Desserts, Snacks, Breakfast",
             "Browse the full Brew & Bean menu — specialty coffee, loose-leaf teas, house-baked desserts, snacks and all-day breakfast. Search dishes and filter by category.", "menu.html") + header() + '''
-<main id="main">''' + page_hero("assets/images/hero-menu.svg","Our menu","Coffee, tea &amp; things baked this morning","Search any dish or filter by category. Prices include taxes; milk alternatives at no extra charge.","Menu") + '''
+<main id="main">''' + page_hero("assets/images/hero-menu.jpg","Our menu","Coffee, tea &amp; things baked this morning","Search any dish or filter by category. Prices include taxes; milk alternatives at no extra charge.","Menu") + '''
 <div class="menu-controls" role="search">
   <div class="container">
     <div class="chips" data-menu-chips aria-label="Menu categories"></div>
@@ -195,14 +213,14 @@ menu = head("Menu — Brew & Bean Café, Noida | Coffee, Tea, Desserts, Snacks, 
   </div>
 </div>
 <div class="section--cream" data-menu-root aria-live="polite" style="padding-block:1rem 3rem"></div>
-<section class="cta-band"><img src="assets/images/hero-reservations.svg" alt="" loading="lazy"><div class="container"><span class="eyebrow">Hungry already?</span><h2>Reserve a table</h2><p class="lead">Or message us on WhatsApp for takeaway orders.</p><div class="hero__actions"><a class="btn btn--primary btn--lg" href="reservations.html">Reserve a Table</a><a class="btn btn--outline-light btn--lg" data-href="whatsapp" data-wa-text="Hi Brew & Bean! I'd like to place a takeaway order." href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-whatsapp"/></svg> Order on WhatsApp</a></div></div></section>
+<section class="cta-band"><img src="assets/images/cta-menu.jpg" alt="" loading="lazy"><div class="container"><span class="eyebrow">Hungry already?</span><h2>Reserve a table</h2><p class="lead">Or message us on WhatsApp for takeaway orders.</p><div class="hero__actions"><a class="btn btn--primary btn--lg" href="reservations.html">Reserve a Table</a><a class="btn btn--outline-light btn--lg" data-href="whatsapp" data-wa-text="Hi Brew & Bean! I'd like to place a takeaway order." href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-whatsapp"/></svg> Order on WhatsApp</a></div></div></section>
 </main>
 ''' + footer() + '''<script src="js/menu.js"></script></body></html>'''
 write("menu.html", menu)
 
 # ============================ ABOUT ============================
 about = head("About Us — Brew & Bean Café, Noida", "The story behind Brew & Bean — a neighbourhood café in Noida built around small-batch roasting, in-house baking and slow mornings.", "about.html") + header() + '''
-<main id="main">''' + page_hero("assets/images/hero-about.svg","About us","Built around a roaster's obsession","A small espresso bar that grew into a neighbourhood café — without losing the small-batch habits.","About") + '''
+<main id="main">''' + page_hero("assets/images/hero-about.jpg","About us","Built around a roaster's obsession","A small espresso bar that grew into a neighbourhood café — without losing the small-batch habits.","About") + '''
 <section class="section section--cream">
   <div class="container">
     <div class="split">
@@ -210,7 +228,7 @@ about = head("About Us — Brew & Bean Café, Noida", "The story behind Brew & B
         <p>Brew &amp; Bean opened as a six-seat espresso bar with a single grinder and a borrowed oven. The idea was simple: coffee this good shouldn't need a special occasion. Word spread, the room grew, and the habits stayed — seasonal single-origin lots, small-batch roasting, everything baked in-house each morning.</p>
         <p>Today the café is a neighbourhood living room: big windows, quiet corners, long tables for working and small ones for talking. The playlists are good. The people remember your order.</p>
         <p class="muted" style="font-size:.85rem">[Founder name, opening year and origin story — replace with the real version.]</p></div>
-      <div class="split__media reveal d1"><div class="frame"><img src="assets/images/about-1.svg" alt="The main room at Brew &amp; Bean" loading="lazy" width="1200" height="900"></div><div class="frame frame--tall"><img src="assets/images/about-2.svg" alt="Green coffee beans before roasting" loading="lazy" width="900" height="1200"></div></div>
+      <div class="split__media reveal d1"><div class="frame"><img src="assets/images/about-1.jpg" alt="The main room at Brew &amp; Bean" loading="lazy" width="1200" height="900"></div><div class="frame frame--tall"><img src="assets/images/about-2.jpg" alt="Green coffee beans before roasting" loading="lazy" width="900" height="1200"></div></div>
     </div>
     <div class="timeline reveal">
       <div><b>Year 1</b><p>Six-seat espresso bar opens. One grinder, one oven.</p></div>
@@ -234,13 +252,13 @@ about = head("About Us — Brew & Bean Café, Noida", "The story behind Brew & B
   <div class="container">
     <div class="section-head reveal"><span class="eyebrow">The team</span><h2>The people behind the bar</h2><p class="muted">Replace with real team photos, names and roles.</p></div>
     <div class="team-grid">
-      <div class="team reveal"><div class="frame"><img src="assets/images/team-1.svg" alt="Portrait — Founder &amp; Head Roaster" loading="lazy"></div><h3>[Name]</h3><p>Founder &amp; Head Roaster</p></div>
-      <div class="team reveal d1"><div class="frame"><img src="assets/images/team-2.svg" alt="Portrait — Head Barista" loading="lazy"></div><h3>[Name]</h3><p>Head Barista</p></div>
-      <div class="team reveal d2"><div class="frame"><img src="assets/images/team-3.svg" alt="Portrait — Pastry Chef" loading="lazy"></div><h3>[Name]</h3><p>Pastry Chef</p></div>
+      <div class="team reveal"><div class="frame"><img src="assets/images/team-1.jpg" alt="Portrait — Founder &amp; Head Roaster" loading="lazy"></div><h3>[Name]</h3><p>Founder &amp; Head Roaster</p></div>
+      <div class="team reveal d1"><div class="frame"><img src="assets/images/team-2.jpg" alt="Portrait — Head Barista" loading="lazy"></div><h3>[Name]</h3><p>Head Barista</p></div>
+      <div class="team reveal d2"><div class="frame"><img src="assets/images/team-3.jpg" alt="Portrait — Pastry Chef" loading="lazy"></div><h3>[Name]</h3><p>Pastry Chef</p></div>
     </div>
   </div>
 </section>
-<section class="cta-band"><img src="assets/images/hero-home.svg" alt="" loading="lazy"><div class="container"><span class="eyebrow">Visit us</span><h2>Come for the espresso, stay for the light</h2><div class="hero__actions"><a class="btn btn--primary btn--lg" href="reservations.html">Reserve a Table</a><a class="btn btn--outline-light btn--lg" href="contact.html">Get directions</a></div></div></section>
+<section class="cta-band"><img src="assets/images/cta-about.jpg" alt="" loading="lazy"><div class="container"><span class="eyebrow">Visit us</span><h2>Come for the espresso, stay for the light</h2><div class="hero__actions"><a class="btn btn--primary btn--lg" href="reservations.html">Reserve a Table</a><a class="btn btn--outline-light btn--lg" href="contact.html">Get directions</a></div></div></section>
 </main>
 ''' + footer() + '''</body></html>'''
 write("about.html", about)
@@ -250,7 +268,7 @@ cats = ["Interiors","Coffee","Food","Moments","Interiors","Coffee","Food","Momen
 spans = ["big","","","tall","","span-2","","","tall","","span-2",""]
 items = "".join(f'<figure class="g-item {spans[i]} reveal" data-cat="{cats[i]}"><img src="assets/images/gallery-{i+1}.svg" alt="{cats[i]} — gallery image {i+1}" loading="lazy"><figcaption>{cats[i]}</figcaption></figure>' for i in range(12))
 gallery = head("Gallery — Brew & Bean Café, Noida", "A look inside Brew & Bean — the room, the coffee, the food and the moments in between.", "gallery.html") + header() + '''
-<main id="main">''' + page_hero("assets/images/hero-gallery.svg","Gallery","The room, the cups, the light","Tap any image to view it full-size. Swipe or use arrow keys to browse.","Gallery") + '''
+<main id="main">''' + page_hero("assets/images/hero-gallery.jpg","Gallery","The room, the cups, the light","Tap any image to view it full-size. Swipe or use arrow keys to browse.","Gallery") + '''
 <section class="section section--cream">
   <div class="container--wide">
     <div class="container"><div class="chips reveal" data-gallery-filters aria-label="Filter gallery" style="margin-bottom:1.75rem"><button class="chip" data-filter="all" aria-pressed="true">All</button><button class="chip" data-filter="Interiors" aria-pressed="false">Interiors</button><button class="chip" data-filter="Coffee" aria-pressed="false">Coffee</button><button class="chip" data-filter="Food" aria-pressed="false">Food</button><button class="chip" data-filter="Moments" aria-pressed="false">Moments</button></div></div>
@@ -266,7 +284,7 @@ write("gallery.html", gallery)
 
 # ============================ RESERVATIONS ============================
 res = head("Reserve a Table — Brew & Bean Café, Noida", "Book a table at Brew & Bean in Noida. Choose your date, time and party size — we confirm on WhatsApp.", "reservations.html") + header() + '''
-<main id="main">''' + page_hero("assets/images/hero-reservations.svg","Reservations","Reserve your table","Groups of up to 12. We confirm every booking on WhatsApp within a few hours.","Reservations") + '''
+<main id="main">''' + page_hero("assets/images/hero-reservations.jpg","Reservations","Reserve your table","Groups of up to 12. We confirm every booking on WhatsApp within a few hours.","Reservations") + '''
 <section class="section section--cream">
   <div class="container">
     <div class="res-layout">
@@ -316,7 +334,7 @@ write("reservations.html", res)
 
 # ============================ CONTACT ============================
 contact = head("Contact — Brew & Bean Café, Noida", "Get in touch with Brew & Bean — address, opening hours, phone, WhatsApp and a quick contact form.", "contact.html", LD) + header() + '''
-<main id="main">''' + page_hero("assets/images/hero-contact.svg","Contact","We'd love to hear from you","Questions, feedback, catering or a private event — drop us a line.","Contact") + '''
+<main id="main">''' + page_hero("assets/images/hero-contact.jpg","Contact","We'd love to hear from you","Questions, feedback, catering or a private event — drop us a line.","Contact") + '''
 <section class="section section--cream">
   <div class="container">
     <div class="contact-layout">
@@ -357,7 +375,7 @@ write("contact.html", contact)
 
 # ============================ PRIVACY (minimal) ============================
 priv = head("Privacy Policy — Brew & Bean", "How Brew & Bean handles the information you share through this website.", "privacy.html", '<meta name="robots" content="noindex">') + header() + '''
-<main id="main">''' + page_hero("assets/images/hero-contact.svg","Legal","Privacy policy","Plain-English summary of how we handle your information.","Privacy") + '''
+<main id="main">''' + page_hero("assets/images/hero-contact.jpg","Legal","Privacy policy","Plain-English summary of how we handle your information.","Privacy") + '''
 <section class="section section--cream"><div class="container" style="max-width:760px">
 <p class="muted" style="font-size:.85rem">[Template — have this reviewed and completed before launch.]</p>
 <h2 class="mt-4" style="font-size:1.8rem">What we collect</h2><p class="mt-2">When you reserve a table or contact us, you share your name, phone number and optionally your email and message. Submissions are sent to us via WhatsApp (and, if configured, our booking email) so we can respond to you.</p>

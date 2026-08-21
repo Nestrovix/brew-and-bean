@@ -29,7 +29,7 @@
       html += `<section class="menu-section" id="${c.id}" aria-labelledby="h-${c.id}">
         <div class="container">
           <div class="menu-section__head"><div><h2 id="h-${c.id}">${c.label}</h2><p class="muted" style="margin-top:.25rem;font-size:.95rem">${c.blurb}</p></div><span class="tnum">${items.length} item${items.length > 1 ? "s" : ""}</span></div>
-          <div class="menu-grid">${items.map(window.renderMenuCard).join("")}</div>
+          <ul class="board-list">${items.map(window.renderMenuCard).join("")}</ul>
         </div></section>`;
     });
     root.innerHTML = html || `<div class="container"><div class="empty"><h3>No dishes match “${q}”</h3><p>Try “latte”, “veg”, “cold” or pick a category above.</p><button class="btn btn--outline-dark mt-3" data-clear>Clear search</button></div></div>`;
