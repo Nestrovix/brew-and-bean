@@ -18,7 +18,7 @@ brew-and-bean/
 ├── js/menu.js            Menu page search/filter
 ├── js/forms.js           Reservation + contact forms
 ├── assets/images/        Placeholder images (replace — see table below)
-├── assets/fonts/         Self-hosted Fraunces + Work Sans (woff2)
+├── assets/fonts/         Self-hosted Young Serif + Hanken Grotesk (woff2)
 ├── assets/og-image.png   Social share card (1200×630)
 ├── assets/favicon.svg
 ├── vercel.json · robots.txt · sitemap.xml
