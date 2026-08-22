@@ -105,7 +105,7 @@ p{max-width:73ch}
 .tnum{font-variant-numeric:lining-nums tabular-nums}
 
 /* surfaces that flip the palette (custom props inherit, so nested widgets follow) */
-.section--dark,.section--espresso,.cta-band,.site-footer,.mobile-nav,.aside-card,.sticky-reserve,.lightbox,.masthead,.page-hero{--focus:var(--pistachio-lt);--surface-fg:var(--on-board);--surface-rule:var(--rule-board-strong);--surface-bg:var(--board)}
+.section--dark,.section--espresso,.cta-band,.site-footer,.mobile-nav,.aside-card,.sticky-reserve,.lightbox,.boardhero,.page-hero{--focus:var(--pistachio-lt);--surface-fg:var(--on-board);--surface-rule:var(--rule-board-strong);--surface-bg:var(--board)}
 .section--dark .muted,.section--espresso .muted,.cta-band .muted{color:var(--on-board-muted)}
 .section--dark .eyebrow,.section--espresso .eyebrow,.cta-band .eyebrow,.aside-card .eyebrow{color:var(--pistachio-lt)}
 
@@ -214,35 +214,81 @@ body.nav-open{overflow:hidden}
 .ticker--board{background:var(--board);border-color:var(--board);color:var(--on-board)}
 .ticker--board .ticker__set li::after{color:var(--pistachio-lt)}
 
-/* ---------- Masthead band (home) — full-bleed photograph, type set over it ---------- */
-.masthead{position:relative;isolation:isolate;color:#FAF7F0;min-height:clamp(560px,86vh,860px);display:flex;align-items:flex-end;overflow:hidden;background:var(--board)}
-.masthead__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.masthead::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(16,14,12,.86) 0%,rgba(16,14,12,.5) 30%,rgba(16,14,12,.58) 58%,rgba(16,14,12,.93) 100%),
-              linear-gradient(90deg,rgba(16,14,12,.55) 0%,rgba(16,14,12,0) 62%)}
-.masthead__inner{width:min(100% - 2*var(--gutter),1400px);margin-inline:auto;padding-block:calc(var(--header-h) + clamp(2.5rem,7vw,5rem)) clamp(1.75rem,4vw,2.75rem)}
-.masthead__eyebrow{display:inline-block;font-size:var(--micro);letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--pistachio-lt)}
-/* Signature wordmark. Young Serif sets "BREW & BEAN" at 7.78em vs the old face's 8.97em,
-   so the cap size is raised ~4% and the tracking flipped from -.045em to +.02em; the pair
-   lands the line at ~1345px inside the 1352px measure at 1440 — the same full-bleed fit. */
-.masthead__wordmark{font-family:var(--font-head);font-weight:400;line-height:.95;letter-spacing:.02em;text-transform:uppercase;
-  font-size:clamp(2.8rem,12.3vw,10.68rem);margin-top:.5rem;max-width:none;color:#FAF7F0;text-wrap:balance}
-/* The ampersand used to step down by weight; with one weight available it steps down by size. */
-.masthead__wordmark .amp{color:#FAF7F0;font-weight:400;font-size:.78em;letter-spacing:.04em}
-.masthead h1{font-family:var(--font-head);font-weight:400;font-size:clamp(1.3rem,2.75vw,2.2rem);line-height:1.2;letter-spacing:-.005em;
-  margin-top:clamp(.9rem,2vw,1.4rem);max-width:28ch;color:#FAF7F0}
-/* one weight only — the emphasis is carried entirely by colour */
-.masthead h1 em{font-style:normal;font-weight:400;color:var(--pistachio-lt)}
-.masthead__lead{margin-top:1rem;max-width:53ch;font-size:var(--lead);line-height:1.6;color:rgba(250,247,240,.86)}
-.masthead__links{display:flex;flex-wrap:wrap;gap:.5rem 2rem;margin-top:1.6rem}
-.masthead__meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:.9rem 3rem;margin-top:clamp(1.75rem,4vw,2.75rem);
-  padding-top:1.15rem;border-top:1px solid rgba(250,247,240,.28);font-size:var(--micro);letter-spacing:.16em;text-transform:uppercase;color:rgba(250,247,240,.82)}
-.masthead__meta b{display:block;font-family:var(--font-head);font-size:.92rem;letter-spacing:0;text-transform:none;color:#FAF7F0;font-weight:400;line-height:1.3;margin-bottom:.35rem}
-.masthead__meta b.open-badge{display:flex;width:max-content;margin-bottom:.4rem;color:var(--pistachio-lt);letter-spacing:.18em;text-transform:uppercase;font-family:var(--font-body);font-size:var(--micro)}
-.masthead__meta b.open-badge.closed{color:var(--terracotta-lt)}
-.masthead .link-arrow{color:#FAF7F0;border-bottom-color:rgba(250,247,240,.55)}
-.masthead .link-arrow:hover{color:var(--pistachio-lt);border-bottom-color:var(--pistachio-lt)}
-.masthead .link-arrow--mark{color:var(--pistachio-lt);border-bottom-color:var(--pistachio-lt)}
+/* ---------- Today's board (home hero) — the café board IS the first screen ----------
+   Two panels on the dark board: the identity + live opening state on the right rail,
+   the day's board (menu-data driven) set large in Young Serif on the left. */
+.boardhero{background:var(--board);color:var(--on-board);position:relative;isolation:isolate;
+  border-bottom:1px solid var(--rule-board)}
+.boardhero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(120% 80% at 78% 0%,rgba(250,247,240,.055) 0%,rgba(250,247,240,0) 62%)}
+.boardhero__inner{width:min(100% - 2*var(--gutter),1400px);margin-inline:auto;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,24.5rem);
+  grid-template-rows:auto auto auto 1fr;
+  grid-template-areas:"board id" "board state" "board cta" "board inset";
+  column-gap:clamp(2rem,4.5vw,4.5rem);
+  padding-block:calc(var(--header-h) + clamp(1.75rem,4.5vw,3.25rem)) clamp(2rem,4.5vw,3.5rem)}
+
+/* --- identity rail --- */
+.boardhero__id{grid-area:id;min-width:0}
+.boardhero__eyebrow{font-size:var(--micro);letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--pistachio-lt)}
+.boardhero__wordmark{font-family:var(--font-head);font-weight:400;line-height:.92;letter-spacing:.015em;
+  text-transform:uppercase;font-size:clamp(2.4rem,5.2vw,3.5rem);margin-top:.55rem;color:#FAF7F0;max-width:none}
+.boardhero__wordmark .amp{font-size:.78em;letter-spacing:.04em;color:var(--pistachio-lt)}
+.boardhero__line{font-family:var(--font-head);font-weight:400;font-size:clamp(1.15rem,1.55vw,1.4rem);
+  line-height:1.24;letter-spacing:-.004em;margin-top:.9rem;max-width:22ch;color:#FAF7F0}
+.boardhero__line em{font-style:normal;font-weight:400;color:var(--pistachio-lt)}
+.boardhero__lead{margin-top:.85rem;max-width:40ch;font-size:.93rem;line-height:1.62;color:var(--on-board-muted)}
+
+/* --- live opening state — reads the real clock against config.hours --- */
+.boardhero__state{grid-area:state;min-width:0;margin-top:clamp(1.4rem,2.6vw,1.9rem)}
+.openstate{width:100%;
+  border:1px solid var(--rule-board-strong);border-left:3px solid var(--pistachio-lt);
+  background:var(--board-2);padding:.95rem 1.1rem}
+.openstate.is-closed{border-left-color:var(--terracotta-lt)}
+.openstate__now{display:flex;align-items:baseline;flex-wrap:wrap;gap:.25rem .6rem;max-width:none}
+.openstate__dot{width:9px;height:9px;flex:none;align-self:center;background:var(--pistachio-lt);
+  box-shadow:0 0 0 4px rgba(169,196,106,.18)}
+.openstate.is-closed .openstate__dot{background:var(--terracotta-lt);box-shadow:0 0 0 4px rgba(224,128,95,.18)}
+.openstate__state{font-family:var(--font-body);font-weight:700;font-size:.76rem;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--pistachio-lt)}
+.openstate.is-closed .openstate__state{color:var(--terracotta-lt)}
+.openstate__detail{font-family:var(--font-head);font-weight:400;font-size:1.02rem;line-height:1.2;color:#FAF7F0}
+.openstate__count{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-top:.6rem;
+  padding-top:.55rem;border-top:1px solid var(--rule-board);max-width:none}
+.openstate__label{font-size:var(--micro);letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--on-board-muted)}
+.openstate__clock{font-family:var(--font-head);font-weight:400;font-size:1.02rem;letter-spacing:.02em;
+  font-variant-numeric:lining-nums tabular-nums;color:#FAF7F0}
+
+.boardhero__actions{grid-area:cta;min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:clamp(1.4rem,2.6vw,1.9rem)}
+.boardhero__actions .link-arrow{color:#FAF7F0;border-bottom-color:rgba(250,247,240,.55)}
+.boardhero__actions .link-arrow:hover{color:var(--pistachio-lt);border-bottom-color:var(--pistachio-lt)}
+
+.boardhero__inset{grid-area:inset;align-self:start;margin:clamp(1.6rem,3vw,2.25rem) 0 0;width:100%;max-width:20rem}
+.boardhero__inset img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--board-2)}
+.boardhero__inset figcaption{margin-top:.55rem;font-size:var(--micro);letter-spacing:.2em;
+  text-transform:uppercase;font-weight:700;color:var(--on-board-muted)}
+
+/* --- the board itself --- */
+.boardhero__board{grid-area:board;min-width:0}
+.boardhero__boardhead{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem 2rem;
+  flex-wrap:wrap;padding-bottom:.85rem;border-bottom:2px solid var(--pistachio-lt)}
+.boardhero__kicker{font-family:var(--font-head);font-weight:400;text-transform:uppercase;letter-spacing:var(--track-caps);
+  font-size:clamp(1.5rem,3.1vw,2.35rem);line-height:1;color:#FAF7F0;max-width:none}
+.boardhero__date{font-size:var(--micro);letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+  color:var(--pistachio-lt);max-width:none}
+.tboard{border-top:0}
+.tboard__row{display:grid;grid-template-columns:minmax(0,auto) minmax(1.5rem,1fr) auto;
+  align-items:baseline;column-gap:clamp(.6rem,1.4vw,1.1rem);
+  padding-block:clamp(.7rem,1.5vw,1.05rem);border-bottom:1px solid var(--rule-board)}
+.tboard__name{grid-column:1;font-family:var(--font-head);font-weight:400;line-height:1.06;
+  letter-spacing:-.006em;font-size:clamp(1.35rem,2.5vw,2.1rem);color:#FAF7F0;text-wrap:balance}
+.tboard__leader{grid-column:2;align-self:center;border-bottom:2px dotted var(--rule-board-strong);transform:translateY(-.1em)}
+.tboard__price{grid-column:3;justify-self:end;white-space:nowrap;font-family:var(--font-head);font-weight:400;
+  font-size:clamp(1.15rem,1.95vw,1.6rem);letter-spacing:.01em;color:var(--pistachio-lt);
+  font-variant-numeric:lining-nums tabular-nums}
+.tboard__note{grid-column:1/-1;margin-top:.3rem;font-size:.86rem;line-height:1.5;color:var(--on-board-muted);max-width:56ch}
+.boardhero__foot{margin-top:1rem;font-size:var(--micro);letter-spacing:.2em;text-transform:uppercase;
+  font-weight:700;color:var(--on-board-muted);max-width:none}
 
 /* ---------- Signature price list — oversized two-column board ---------- */
 .pricelist-band{background:var(--paper);color:var(--ink);padding-block:clamp(2.75rem,6vw,4.75rem)}
@@ -603,13 +649,18 @@ html.js .reveal.d1{transition-delay:.07s}html.js .reveal.d2{transition-delay:.14
   .location__info{grid-template-columns:1fr 1fr}
   .nav__phone{display:none}
   .nav__links{gap:1.15rem}
+  .boardhero__inner{grid-template-columns:minmax(0,1fr) minmax(258px,20rem);column-gap:clamp(1.5rem,3.5vw,2.5rem)}
 }
 @media (max-width:900px){
   :root{--header-h:66px}
   .nav__links,.nav__cta .btn{display:none}
   .nav__toggle{display:inline-flex}
-  .masthead{min-height:clamp(500px,78vh,720px)}
-  .masthead__meta{grid-template-columns:1fr 1fr;gap:.9rem 2rem}
+  .boardhero__inner{grid-template-columns:minmax(0,1fr);grid-template-rows:none;
+    grid-template-areas:"id" "state" "board" "cta" "inset"}
+  .boardhero__id,.boardhero__lead{max-width:52ch}
+  .boardhero__board{margin-top:clamp(1.9rem,5.5vw,2.6rem)}
+  .boardhero__inset{max-width:none}
+  .boardhero__inset img{aspect-ratio:16/9}
   .page-hero{min-height:clamp(300px,44vh,420px)}
   .priceline{grid-template-columns:auto 1fr;row-gap:.6rem}
   .priceline__price{grid-column:2;justify-self:end}
@@ -649,8 +700,10 @@ html.js .reveal.d1{transition-delay:.07s}html.js .reveal.d2{transition-delay:.14
   .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:145px}
   .g-item.big{grid-column:span 2;grid-row:span 2}
   .insta-grid{grid-template-columns:repeat(3,1fr)}
-  .masthead__meta{grid-template-columns:1fr;gap:.9rem}
-  .masthead__links{flex-direction:column;gap:.85rem}
+  .boardhero__actions{flex-direction:column;align-items:stretch;gap:1rem}
+  .boardhero__actions .link-arrow{align-self:flex-start}
+  .tboard__row{grid-template-columns:minmax(0,1fr) auto;column-gap:.9rem}
+  .tboard__leader{display:none}
   .priceline{grid-template-columns:1fr;row-gap:.5rem}
   .priceline__thumb{width:100%;aspect-ratio:16/9}
   .priceline__price{grid-column:1;justify-self:start;text-align:left}

@@ -67,23 +67,88 @@
   </div>
 </div>
 <main id="main">
-<!-- 2. MASTHEAD BAND -->
-<section class="masthead" aria-label="Welcome">
-  <img class="masthead__bg" src="assets/images/hero-home.jpg" alt="Café interior at golden hour with pendant bulbs hanging over a shared timber table" fetchpriority="high" decoding="async" width="1400" height="1750">
-  <div class="masthead__inner">
-    <span class="masthead__eyebrow reveal">Premium café · Noida</span>
-    <p class="masthead__wordmark reveal">Brew <span class="amp">&amp;</span> Bean</p>
-    <h1 class="reveal d1">Slow mornings, <em>serious</em> coffee.</h1>
-    <p class="masthead__lead reveal d2">Single-origin espresso, house-baked pastries and an all-day breakfast — in a warm, light-filled room made for lingering.</p>
-    <div class="masthead__links reveal d3">
-      <a class="link-arrow link-arrow--mark" href="reservations.html">Reserve a Table <svg class="ic"><use href="#i-arrow"/></svg></a>
+<!-- 2. TODAY'S BOARD — the café board is the first screen -->
+<section class="boardhero" aria-labelledby="boardhero-h">
+  <div class="boardhero__inner">
+
+    <div class="boardhero__id">
+      <p class="boardhero__eyebrow">Premium café · Noida</p>
+      <p class="boardhero__wordmark">Brew <span class="amp">&amp;</span> Bean</p>
+      <h1 id="boardhero-h" class="boardhero__line">Slow mornings, <em>serious</em> coffee.</h1>
+      <p class="boardhero__lead">Single-origin espresso, house-baked pastries and an all-day breakfast — in a warm, light-filled room made for lingering.</p>
+
+    </div>
+
+    <div class="boardhero__state">
+      <div class="openstate" data-openstate>
+        <p class="openstate__now">
+          <span class="openstate__dot" aria-hidden="true"></span>
+          <b class="openstate__state" data-open-state>Open now</b>
+          <span class="openstate__detail" data-open-detail>closes 11:00 PM</span>
+        </p>
+        <p class="openstate__count">
+          <span class="openstate__label" data-open-countlabel>Closes in</span>
+          <span class="openstate__clock tnum" data-open-countdown>—</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="boardhero__actions">
+      <a class="btn btn--primary btn--lg" href="reservations.html">Reserve a Table</a>
       <a class="link-arrow" href="menu.html">Explore the Menu <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
-    <div class="masthead__meta reveal d3">
-      <div><b data-open-badge class="open-badge">Open today</b>Opening hours</div>
-      <div><b><span data-bind="addressLine2">Noida, Uttar Pradesh</span></b>Find us</div>
-      <div><b>Specialty · All-day breakfast</b>What we do</div>
+
+    <figure class="boardhero__inset">
+      <img src="assets/images/hero-home.jpg" alt="Café interior at golden hour with pendant bulbs hanging over a shared timber table" loading="eager" decoding="async" width="1400" height="1750">
+      <figcaption>The room, first light</figcaption>
+    </figure>
+
+    <div class="boardhero__board">
+      <div class="boardhero__boardhead">
+        <p class="boardhero__kicker">Today's board</p>
+        <p class="boardhero__date" data-board-date>Served today</p>
+      </div>
+      <ul class="tboard" data-today-board>
+        <li class="tboard__row">
+          <span class="tboard__name">Espresso</span>
+          <span class="tboard__leader" aria-hidden="true"></span>
+          <span class="tboard__price tnum">₹180</span>
+          <span class="tboard__note">Double shot of our house blend</span>
+        </li>
+        <li class="tboard__row">
+          <span class="tboard__name">Masala Chai</span>
+          <span class="tboard__leader" aria-hidden="true"></span>
+          <span class="tboard__price tnum">₹150</span>
+          <span class="tboard__note">Slow-brewed with fresh ginger, cardamom and black pepper</span>
+        </li>
+        <li class="tboard__row">
+          <span class="tboard__name">Almond Croissant</span>
+          <span class="tboard__leader" aria-hidden="true"></span>
+          <span class="tboard__price tnum">₹190</span>
+          <span class="tboard__note">Twice-baked, frangipane-filled, toasted almonds</span>
+        </li>
+        <li class="tboard__row">
+          <span class="tboard__name">Avocado Toast</span>
+          <span class="tboard__leader" aria-hidden="true"></span>
+          <span class="tboard__price tnum">₹320</span>
+          <span class="tboard__note">Sourdough, smashed avocado, chilli flakes, lime</span>
+        </li>
+        <li class="tboard__row">
+          <span class="tboard__name">Shakshuka</span>
+          <span class="tboard__leader" aria-hidden="true"></span>
+          <span class="tboard__price tnum">₹360</span>
+          <span class="tboard__note">Eggs baked in spiced tomato-pepper sauce, feta, warm bread</span>
+        </li>
+        <li class="tboard__row">
+          <span class="tboard__name">Flat White</span>
+          <span class="tboard__leader" aria-hidden="true"></span>
+          <span class="tboard__price tnum">₹260</span>
+          <span class="tboard__note">Velvety micro-foam over a double ristretto</span>
+        </li>
+      </ul>
+      <p class="boardhero__foot">Prices in ₹ · Milk alternatives at no extra charge</p>
     </div>
+
   </div>
 </section>
 
